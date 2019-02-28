@@ -44,8 +44,8 @@
 
         "bn-visit-date-data":		    {url:"$A/modules/c/cpaphdeeg-tasks/visit-date-data.html",Table:"20009311",form_module:"bn-visit-date-form"},
         "bn-visit-date-form":		    {url:"$A/modules/c/cpaphdeeg-tasks/visit-date-form.html",Table:"20009311"},
-        "bn-anthropometry-data":		{url:"$A/modules/c/cpaphdeeg-tasks/anthropometry-data.html",Table:"20009312",form_module:"bn-anthropometry-form"},
-        "bn-anthropometry-form":		{url:"$A/modules/c/cpaphdeeg-tasks/anthropometry-form.html",Table:"20009312"},
+        "bn-anthropometry-data":		{url:"$A/modules/c/cpaphdeeg-tasks/anthro-short-data.html",Table:"20009312",form_module:"bn-anthropometry-form"},
+        "bn-anthropometry-form":		{url:"$A/modules/c/cpaphdeeg-tasks/anthro-short-form.html",Table:"20009312"},
         "bn-ess-data":		            {url:"$A/modules/c/cpaphdeeg-tasks/ess-data.html",Table:"20009313",form_module:"bn-ess-form"},
         "bn-ess-form":		            {url:"$A/modules/c/cpaphdeeg-tasks/ess-form.html",Table:"20009313"},     
         "bn-isi-data":		            {url:"$A/modules/c/cpaphdeeg-tasks/isi-data.html",Table:"20009315",form_module:"bn-isi-form"},
@@ -145,6 +145,10 @@
         "tv2-mtp-form":		            {url:"$A/modules/c/cpaphdeeg-tasks/mtp-form.html",Table:"20009567"},     
         "tv2-finger-tapping-6-data":	{url:"$A/modules/c/cpaphdeeg-tasks/finger-tapping-6-data.html",Table:"20010467",form_module:"tv2-finger-tapping-6-form"},
         "tv2-finger-tapping-6-form":	{url:"$A/modules/c/cpaphdeeg-tasks/finger-tapping-6-form.html",Table:"20010467"},   
+
+        "set-1-word-pairs-practice":	{url:"$A/modules/c/cpaphdeeg-word-pairs/set-1-word-pairs-practice.html"},     
+        "set-2-word-pairs-practice":	{url:"$A/modules/c/cpaphdeeg-word-pairs/set-2-word-pairs-practice.html"},     
+        
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
