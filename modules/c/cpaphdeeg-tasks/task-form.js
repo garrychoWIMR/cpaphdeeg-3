@@ -5,7 +5,8 @@ var participant_name =function(record){ if(record.Subject_Initials!=undefined) r
 //-------------------------------------
 //auto select participant
 var wait1=function(){
-    var sql="with tb as (select UID,Subject_Initials=JSON_VALUE(Information,'$.Subject_Initials') from [TABLE-"+participant_tid+"])";
+    //var sql="with tb as (select UID,Subject_Initials=JSON_VALUE(Information,'$.Subject_Initials') from [TABLE-"+participant_tid+"])";
+    var sql="with tb as (select UID,Subject_Initials=@('Subject_Initials') from [TABLE-"+participant_tid+"])";
     sql+=" select top 10 UID,Subject_Initials from tb where Subject_Initials like '%'+@S1+'%' ";
     var autocomplete_list=function(records){
         var items=[];
@@ -26,6 +27,8 @@ var I=0, loop_1=setInterval(function (){
     if($vm['jquery-ui-min-js']!=undefined){  clearInterval(loop_1); wait1(); }
     I++; if(I>50){ clearInterval(loop_1); alert("jquery-ui.min.js is not installed.");}
 },100);
+//-------------------------------------
+m.xml=1;
 //-------------------------------------
 m.load=function(){
     //m.input=$vm.vm['__ID'].input; if(m.input==undefined) m.input={};
