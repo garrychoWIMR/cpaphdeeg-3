@@ -66,7 +66,11 @@ m.before_submit=function(record,dbv){
 }
 //-------------------------------------
 m.new=function(){
-    if(m.form_module!=undefined){
+    if(m.form_module2!=undefined){
+        var participant_record=$vm.vm['__ID'].input.record; //from the child panel
+        $vm.load_module_v2(m.form_module2,'',{participant_record:participant_record,goback:1});
+    }
+    else if(m.form_module!=undefined){
         var participant_record=$vm.vm['__ID'].input.record; //from the child panel
         $vm.load_module_v2(m.form_module,'',{participant_record:participant_record,goback:1});
     }
