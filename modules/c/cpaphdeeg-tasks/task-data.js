@@ -24,10 +24,10 @@ m.set_req=function(){
 }
 //-------------------------------------
 m.set_req_export=function(i1,i2){
-    m.fields_e=m.form_fields;
-    var sql="with participant as (select ParticipantUID=UID from [FORM-"+participant_pid+"] )";
+    //m.fields_e=m.form_fields;
+    var sql="with participant as (select ParticipantUID=UID,RowNum=row_number() over (order by ID DESC) from [FORM-"+participant_pid+"] )";
     sql+=",task as (select ID,UID,PUID,S3,Information,DateTime,Author from [FORM-"+m.Table+"-@S1])";
-    sql+=",records as (select ID,ParticipantUID,Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from participant left join task on PUID=ParticipantUID)";
+    sql+=",records as (select ID,Participant_ID=ParticipantUID,Information,DateTime,Author,RowNum from participant left join task on PUID=ParticipantUID)";
 	sql+=" select * from records where RowNum between @I1 and @I2";
     m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2}
 }

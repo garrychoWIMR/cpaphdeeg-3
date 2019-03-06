@@ -9,6 +9,7 @@
             //-------------------------------------
             var fields="_Participant_ID,Study_ID,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
             m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+            m.fields_e="Participant_ID|UID,Study_ID,Screening_Number,Subject_Initials,Gender,DOB"
             //-------------------------------------
             var login_setup_tid=$vm.module_list[m.questionnaire_setup].Table;
             var online_questionnaire=$vm.public_url_$B;
@@ -63,6 +64,14 @@
             }
             */
             //-------------------------------------
+            /*
+            m.set_req_export=function(i1,i2){
+                var sql="with tb as (select UID,Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] )";
+                sql+="select UID,Information,DateTime,Author from tb where RowNum between @I1 and @I2";
+                m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2};
+            }
+            */
+            //-----------------------------------------------
         }
     </script>
     <style>
